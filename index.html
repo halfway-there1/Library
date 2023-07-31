@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./index.js" defer></script>
+</head>
+<body>
+  <p>My Library</p>
+  <form action="#" id="book-form">
+    <label for="book-title">Book Title</label>
+    <input type="text" id="book-title" name="book-title">
+    
+    <label for="author">Author</label>
+    <input type="text" id="author" name="author">
+    
+    <label for="page-count">Page Count</label>
+    <input type="number" id="page-count" name="page-count">
+    
+    <input type="checkbox" name="read-status" id="read-status">
+    <label for="read-status">Read</label>
+    
+    <input type="submit" value="Add Book" id="add-book-btn">
+    
+  </form>
+  <div class="book-container">
+    <div class="book">
+      <p>The Hobbit by J.R.R. Tolkien, 295 pages, not read yet</p>
+    </div>
+  </div>  
+</body>
+</html>

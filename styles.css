@@ -1,0 +1,8 @@
+.book-container {
+  border: 2px solid black;
+  padding: 20px;
+}
+
+.book {
+  border: 2px solid blue;
+}
