@@ -10,12 +10,14 @@ const bookContainer = document.querySelector('.book-container');
 // actual code begins
 
 const library = [];
+let bookIdCounter = 0;
 
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
+  this.bookId = ++bookIdCounter;
 }
 
 Book.prototype.info = function () {
@@ -26,7 +28,6 @@ Book.prototype.info = function () {
 };
 
 let b1 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, true);
-console.log(b1.info());
 
 addBookBtn.addEventListener('click', (event) => {
   event.preventDefault();
@@ -51,7 +52,26 @@ function createBookElement(book) {
   const bookInfoEle = document.createElement('p');
   bookInfoEle.textContent = book.info();
 
-  bookEle.append(bookInfoEle);
+  const deleteBtn = document.createElement('button');
+  deleteBtn.classList.add('deleteBtn');
+  deleteBtn.textContent = 'Delete';
+  deleteBtn.dataset.bookId = String(book.bookId);
+  deleteBtn.addEventListener('click', function () {
+    console.log('deleted the bookElement', bookEle);
+    bookEle.remove();
+    removeBookById(book.bookId);
+  });
+
+  bookEle.append(bookInfoEle, deleteBtn);
 
   return bookEle;
+}
+
+function removeBookById(bookId) {
+  const pos = library.findIndex((book) => {
+    return book.bookId === bookId;
+  });
+  console.log(pos);
+  console.log('book removed from array', library[pos]);
+  library.splice(pos, 1);
 }
