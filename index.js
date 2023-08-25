@@ -1,4 +1,5 @@
 // form elements
+const form = document.querySelector('#book-form');
 const bookTitle = document.querySelector('#book-title');
 const author = document.querySelector('#author');
 const pageCount = document.querySelector('#page-count');
@@ -31,7 +32,11 @@ let b1 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, true);
 
 addBookBtn.addEventListener('click', (event) => {
   event.preventDefault();
-  addBookToLibrary();
+  if (form.checkValidity()) {
+    addBookToLibrary();
+  } else {
+    form.reportValidity();
+  }
 });
 
 function addBookToLibrary() {
@@ -55,10 +60,12 @@ function createBookElement(book) {
   const deleteBtn = document.createElement('button');
   deleteBtn.classList.add('deleteBtn');
   deleteBtn.textContent = 'Delete';
-  deleteBtn.dataset.bookId = String(book.bookId);
   deleteBtn.addEventListener('click', function () {
     console.log('deleted the bookElement', bookEle);
-    bookEle.remove();
+    bookEle.classList.add('fade-out');
+    setTimeout(() => {
+      bookEle.remove();
+    }, 500);
     removeBookById(book.bookId);
   });
 

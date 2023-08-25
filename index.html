@@ -9,12 +9,12 @@
 </head>
 <body>
   <p>My Library</p>
-  <form action="#" id="book-form">
+  <form id="book-form">
     <label for="book-title">Book Title</label>
     <input type="text" id="book-title" name="book-title" required>
     
     <label for="author">Author</label>
-    <input type="text" id="author" name="author">
+    <input type="text" id="author" name="author" required>
     
     <label for="page-count">Page Count</label>
     <input type="number" id="page-count" name="page-count">
@@ -29,7 +29,7 @@
   <div class="book-container">
     <div class="book">
       <p>The Hobbit by J.R.R. Tolkien, 295 pages, not read yet</p>
-      <button>Delete</button>
+      <button onclick="alert(`It's a demo book delete button will not work`)">Delete</button>
     </div>
   </div>
   <button id="selectMe" data-bookId="12">Delete</button>
