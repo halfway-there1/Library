@@ -1,12 +1,10 @@
-// form elements
-const form = document.querySelector('#book-form');
-const bookTitle = document.querySelector('#book-title');
-const author = document.querySelector('#author');
-const pageCount = document.querySelector('#page-count');
-const readStatus = document.querySelector('#read-status');
-const addBookBtn = document.querySelector('#add-book-btn');
-
 const bookContainer = document.querySelector('.book-container');
+
+const form = document.querySelector('#book-form');
+// form elements
+const inputs = [...document.querySelectorAll('input')];
+const [bookTitle, author, pageCount, readStatus] = inputs;
+const addBookBtn = document.querySelector('#add-book-btn');
 
 // actual code begins
 
