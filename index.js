@@ -46,18 +46,46 @@ function addBookToLibrary() {
   bookContainer.append(bookEle);
 }
 
+function makeElement(tag, classes, content) {
+  const element = document.createElement(tag);
+  element.classList = classes.join(' ');
+  element.textContent = content;
+
+  return element;
+}
+
 // creates a book-element on the dom using the
 // book parameter
 function createBookElement(book) {
-  const bookEle = document.createElement('div');
-  bookEle.classList.add('book');
+  const bookEle = makeElement('div', ['book'], '');
 
-  const bookInfoEle = document.createElement('p');
-  bookInfoEle.textContent = book.info();
+  const children = [
+    makeElement('p', ['title'], book.title),
+    makeElement('p', ['author'], book.author),
+    makeElement('p', ['page-count'], book.pages),
+    makeElement(
+      'p',
+      [book.read ? 'read' : 'not-read'],
+      book.read ? 'Read' : '! Read'
+    ),
+    makeElement('button', ['deleteBtn'], 'Delete'),
+  ];
+  console.log(children);
 
-  const deleteBtn = document.createElement('button');
-  deleteBtn.classList.add('deleteBtn');
-  deleteBtn.textContent = 'Delete';
+  const [, , , readBtn, deleteBtn] = children;
+
+  readBtn.addEventListener('click', function () {
+    if (this.textContent === 'Read') {
+      this.textContent = '! Read';
+      this.classList = 'not-read';
+      book.read = false;
+    } else {
+      this.textContent = 'Read';
+      this.classList = 'read';
+      book.read = true;
+    }
+  });
+
   deleteBtn.addEventListener('click', function () {
     console.log('deleted the bookElement', bookEle);
     bookEle.classList.add('fade-out');
@@ -67,7 +95,7 @@ function createBookElement(book) {
     removeBookById(book.bookId);
   });
 
-  bookEle.append(bookInfoEle, deleteBtn);
+  bookEle.append(...children);
 
   return bookEle;
 }
