@@ -8,7 +8,7 @@
   <script src="./index.js" defer></script>
 </head>
 <body>
-  <p>My Library</p>
+  <h1>My Library</h1>
   <form id="book-form">
     <label for="book-title">Book Title</label>
     <input type="text" id="book-title" name="book-title" required>
@@ -17,7 +17,7 @@
     <input type="text" id="author" name="author" required>
     
     <label for="page-count">Page Count</label>
-    <input type="number" id="page-count" name="page-count">
+    <input type="number" id="page-count" name="page-count" required>
     
     <input type="checkbox" name="read-status" id="read-status">
     <label for="read-status">Read</label>
@@ -28,10 +28,19 @@
   
   <div class="book-container">
     <div class="book">
-      <p>The Hobbit by J.R.R. Tolkien, 295 pages, not read yet</p>
+      <p class="title">The Hobbit</p>
+      <p class="author">by J.R.R Tolkien</p>
+      <p class="page-count">295</p>
+      <p class="not-read">Not Read</p>
+      <button onclick="alert(`It's a demo book delete button will not work`)">Delete</button>
+    </div>
+    <div class="book">
+      <p class="title">The Hobbit</p>
+      <p class="author">by J.R.R Tolkien</p>
+      <p class="page-count">295</p>
+      <p class="read">Read</p>
       <button onclick="alert(`It's a demo book delete button will not work`)">Delete</button>
     </div>
   </div>
-  <button id="selectMe" data-bookId="12">Delete</button>
 </body>
 </html>
