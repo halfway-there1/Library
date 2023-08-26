@@ -22,7 +22,7 @@
     <input type="checkbox" name="read-status" id="read-status">
     <label for="read-status">Read</label>
     
-    <input type="submit" value="Add Book" id="add-book-btn">
+    <button type="submit" id="add-book-btn">Add Book</button>
     
   </form>
   
@@ -30,16 +30,16 @@
     <div class="book">
       <p class="title">The Hobbit</p>
       <p class="author">by J.R.R Tolkien</p>
-      <p class="page-count">295</p>
-      <p class="not-read">Not Read</p>
-      <button onclick="alert(`It's a demo book delete button will not work`)">Delete</button>
+      <p class="page-count">295 pages</p>
+      <p class="not-read">! Read</p>
+      <button class="deleteBtn" onclick="alert(`It's a demo book delete button will not work`)">Delete</button>
     </div>
     <div class="book">
       <p class="title">The Hobbit</p>
       <p class="author">by J.R.R Tolkien</p>
-      <p class="page-count">295</p>
+      <p class="page-count">295 pages</p>
       <p class="read">Read</p>
-      <button onclick="alert(`It's a demo book delete button will not work`)">Delete</button>
+      <button class="deleteBtn"onclick="alert(`It's a demo book delete button will not work`)">Delete</button>
     </div>
   </div>
 </body>

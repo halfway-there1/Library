@@ -32,6 +32,7 @@ addBookBtn.addEventListener('click', (event) => {
   event.preventDefault();
   if (form.checkValidity()) {
     addBookToLibrary();
+    // TODO form.reset()
   } else {
     form.reportValidity();
   }
@@ -62,7 +63,7 @@ function createBookElement(book) {
   const children = [
     makeElement('p', ['title'], book.title),
     makeElement('p', ['author'], book.author),
-    makeElement('p', ['page-count'], book.pages),
+    makeElement('p', ['page-count'], book.pages + ' pages'),
     makeElement(
       'p',
       [book.read ? 'read' : 'not-read'],
