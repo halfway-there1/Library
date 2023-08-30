@@ -3,17 +3,119 @@
 
 * {
   margin: 0;
+  box-sizing: border-box;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.header {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(42, 52, 65);
+  padding: 10px 20px;
+}
+
+@media (width < 500px) {
+  .header {
+    flex-direction: column;
+  }  
 }
 
 h1 {
-  background-color: rgb(42, 52, 65);
-  color: white;
-  font-family: 'DM Sans', sans-serif;
   letter-spacing: 0.4rem;
   font-size: 64px;
-  margin: 0;
-  margin-bottom: 1rem;
   text-align: center;
+}
+
+#modalBtn {
+  color: white;
+  /* background-color: rgb(245, 119, 23); */
+  background-color: rgb(255, 165, 0);
+  border: none;
+  outline: none;
+  height: 1.8rem;
+  border-radius: 4px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+#modalBtn:hover {
+  outline: 2px solid white;
+}
+
+#modal {
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: rgb(108, 132, 162);
+  color: white;
+  left: 50%;
+  padding: 20px;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 250px;
+  width: min(30%, 400px);
+}
+
+#modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.58);
+}
+
+form {
+  letter-spacing: 1px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  /* justify-content: center; */
+  align-items: stretch;
+  flex-shrink: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+input {
+  height: 1.8rem;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  padding: 4px;
+  width: 100%;
+  font-size: 1rem;
+}
+
+#checkbox {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-btn {
+  border-radius: 4px;
+  color: white;
+  letter-spacing: 2px;
+  font-weight: 700;
+  height: 1.8rem;
+  outline: none;
+  border: none;
+}
+
+#add-book-btn {
+  background-color: rgb(16, 189, 16);
+  background-color: rgb(4, 87, 189);
+}
+
+#cancel-btn {
+  background-color: red;
+  background-color: rgb(92, 92, 92);
+}
+
+.form-btn:hover {
+  outline: 2px solid white;
 }
 
 .book-container {
@@ -26,7 +128,6 @@ h1 {
 
 .book {
   border: 2px solid blue;
-  font-family: 'DM Sans', sans-serif;
   padding: 0.8rem;
   transition: 0.4s;
   display: flex;
@@ -66,7 +167,6 @@ h1 {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
-
 
 .deleteBtn {
   align-self: stretch;

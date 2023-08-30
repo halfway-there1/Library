@@ -1,10 +1,14 @@
 const bookContainer = document.querySelector('.book-container');
 
+const modal = document.getElementById('modal');
+const modalBtn = document.getElementById('modalBtn');
+
 const form = document.querySelector('#book-form');
 // form elements
 const inputs = [...document.querySelectorAll('input')];
 const [bookTitle, author, pageCount, readStatus] = inputs;
 const addBookBtn = document.querySelector('#add-book-btn');
+const cancelBtn = document.querySelector('#cancel-btn');
 
 // actual code begins
 
@@ -28,11 +32,19 @@ Book.prototype.info = function () {
 
 let b1 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, true);
 
-addBookBtn.addEventListener('click', (event) => {
+modalBtn.addEventListener('click', () => modal.showModal());
+cancelBtn.addEventListener('click', (event) => {
   event.preventDefault();
+  modal.close();
+});
+
+addBookBtn.addEventListener('click', (event) => {
+  // event.preventDefault();
   if (form.checkValidity()) {
     addBookToLibrary();
-    // TODO form.reset()
+    // TODO
+    form.reset();
+    modal.close();
   } else {
     form.reportValidity();
   }
